@@ -1,0 +1,113 @@
+openapi: 3.0.3
+info:
+  title: "Bulk Order Manager API"
+  description: "Bulk Order Manager API enables your to update or delete together a large number of orders that are waiting to be fulfilled. You can update or delete upto 100000 orders together in a single request to this API. Bulk Order Manager bulk-processes orders in parallel in response to such requests, providing faster order maintenance.<br/> **Note**:<br/>The API processes only those orders that are unfulfilled (existing in the staging repository). "
+  version: "1.0"
+  termsOfService: "http://www.example.com/terms"
+  contact:
+    name: "Bulk Order Manager API"
+    url: "http://www.example.com/api"
+    email: "mugdhav.work@gmail.com"
+  license:
+    name: "CC Attribution-ShareAlike 4.0 (CC BY-SA 4.0)"
+    url: "http://www.example.com/price"
+servers:
+- url: http://www.example.com/data/2.0/
+  description: Production server
+tags:
+- name: bulkorder
+  description: Bulk order operations
+  externalDocs:
+    description: Find out more
+    url: http://www.example.com/operations
+paths:
+  /update:
+    post:
+      tags:
+      - bulkorder
+      summary: "Update the specified properties of orders"
+      description: "Update the specified properties of orders. All updated order have the same value for a specified property.<br/>Orders to update are identified using a starting Order ID and the total number of orders to update."
+      operationId: updateOrder
+      parameters:
+      - name: startOrderID
+        in: query
+        description: "ID of the first order among the orders to be updated.<br/>**Tip:** Try 2357 for testing."
+        required: true
+        schema:
+         type: integer
+        
+      - name: totalOrdersToUpdate
+        in: query
+        description: "Total number of orders to be updated. Valid values are 2 to 100000.<br/>**Tip:** Try 999 for testing."
+        required: true
+        schema:
+         type: integer
+        
+      - name: updatePropObj
+        in: query
+        description: "A Hashmap object containing key-value pairs of order properties and their updated values."
+        required: true
+        schema:
+         type: object
+        examples:
+         updatePropObj1:
+           summary: An example updatePropObj
+           value:
+             OrderType: Internet Add-On
+             Quantity: 1
+             Price: $50
+      
+      - name: updateReason
+        in: query
+        description: "The reason to update records.<br/>**Note:** If provided, this reason is logged in the operations log."
+        required: false
+        schema:
+         type: string
+         
+      responses:
+        405:
+          description: Invalid input
+
+        200:
+          description: Order update successful
+        
+        404:
+          description: Order(s) not found
+          content:
+            text/plain:
+              schema:
+                title: Order(s) to update were not found
+                type: string
+                example: Order(s) to update were not found.
+
+
+  /delete:
+    delete:
+      tags:
+      - bulkorder
+      summary: "Delete the specified orders"
+      description: "Delete the specified orders. Orders to delete are identified using a starting Order ID and the total number of orders to delete."
+      operationId: deleteOrder
+      parameters:
+      - name: startOrderID
+        in: query
+        description: "ID of the first order among the orders to be deleted.<br/>**Tip:** Try 2357 for testing."
+        required: true
+        schema:
+         type: integer
+        
+      - name: totalOrdersToUpdate
+        in: query
+        description: "Total number of orders to be deleted. Valid values are 2 to 100000.<br/>**Tip:** Try 999 for testing."
+        required: true
+        schema:
+         type: integer 
+      responses:
+        200:
+          description: Order deletion successful
+        
+        404:
+          description: Order(s) to delete were not found
+          
+        405:
+          description: Invalid input        
