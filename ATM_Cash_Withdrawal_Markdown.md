@@ -57,7 +57,7 @@
 
      See:
          The ATM did not dispense the amount.
-	 The ATM did not dispense the correct amount.
+         The ATM did not dispense the correct amount.
          
 9.Collect the currency notes from the ATM's cash dispensing slot within 30 seconds.
 
