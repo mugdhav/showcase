@@ -1,1 +1,1 @@
-The accompanying Coordinating with globally-distributed teams file showcases KBA Assistant, a tool to generate knowledgebase article drafts from defect information available in Jira.
+The accompanying KBA_Assistant_ForDemo.ipynb file showcases KBA Assistant, a tool to generate knowledgebase article drafts from defect information available in Jira. The tool uses OpenAI's GPT 3.5 Turbo to generate the drafts in the desired format described in a prompt.
