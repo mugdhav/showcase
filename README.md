@@ -35,3 +35,13 @@ This repository contains my original work showcased for prospective employers an
 ---
 
 **Portfolio Highlights:** This repository showcases expertise in AI/ML, cloud development, API documentation, UX design, and technical writing.
+
+---
+
+## Copyright
+
+© 2025 Mugdha Vairagade. All Rights Reserved.
+
+This repository and all its contents, including but not limited to code, documentation, designs, and media files, are the intellectual property of Mugdha Vairagade. No part of this repository may be reproduced, distributed, or transmitted in any form or by any means without the prior written permission of the copyright holder, except for the purpose of viewing for evaluation by prospective employers and professional peers.
+
+**Unauthorized use, reproduction, or distribution of these materials is strictly prohibited and may result in legal action.**
