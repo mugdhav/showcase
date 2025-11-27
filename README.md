@@ -2,7 +2,7 @@
 
 This repository showcases my original work samples for prospective employers and peers. Please note that **all contents of this repository are under copyright**, my own or other publishers', and you can only view them. No other usage is permitted.
 
-**Portfolio Highlights:** This repository showcases expertise in AI/ML, cloud development, API documentation, UX design, and technical writing.
+Portfolio Highlights: This repository showcases expertise in AI/ML, cloud development, API documentation, UX design, and technical writing.
 ---
 
 ## Repository Contents
